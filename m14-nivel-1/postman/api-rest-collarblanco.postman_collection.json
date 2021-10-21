@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "9c129b37-1c78-413c-b373-0fdf07136802",
+		"name": "api-rest-collarblanco",
+		"description": "Esta api permite ejecutar todos los servicios CRUD de una franquicia de tiendas llamada Collar Blanco que vende pinturas o cuadros falsificados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Servicios tienda:",
+			"item": [
+				{
+					"name": "listado de tiendas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/collarblanco/tiendas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tiendas"
+							]
+						},
+						"description": "Este servicio devuelve todas las tiendas de la franquicia Collar Blanco"
+					},
+					"response": []
+				},
+				{
+					"name": "tienda por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/collarblanco/tienda/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tienda",
+								"5"
+							]
+						},
+						"description": "Este servicio permite acceder a cada tienda por su id"
+					},
+					"response": []
+				},
+				{
+					"name": "tienda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Galeria 'Colón lava más blanco'\",\r\n    \"capacidad\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/collarblanco/tienda",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tienda"
+							]
+						},
+						"description": "Este servicio permite crear una tienda en la base de datos"
+					},
+					"response": []
+				},
+				{
+					"name": "tienda por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/collarblanco/tienda/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tienda",
+								"3"
+							]
+						},
+						"description": "Este servicio permite eliminar una tienda de la base de datos"
+					},
+					"response": []
+				},
+				{
+					"name": "tienda por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Galeria 'El algodón no engaña'\",\r\n    \"capacidad\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/collarblanco/tienda/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tienda",
+								"4"
+							]
+						},
+						"description": "Este servicio modifica los valores de una tienda"
+					},
+					"response": []
+				}
+			],
+			"description": "Esta carpeta contiene los servicios de las tiendas"
+		},
+		{
+			"name": "Servicios cuadro:",
+			"item": [
+				{
+					"name": "listado de cuadros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/collarblanco/cuadros",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"cuadros"
+							]
+						},
+						"description": "Este servicio permite obtener un listado de todos los cuadros de la base de datos"
+					},
+					"response": []
+				},
+				{
+					"name": "cuadros por id tienda",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/collarblanco/tienda/4/cuadros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tienda",
+								"4",
+								"cuadros"
+							]
+						},
+						"description": "Este servicio permite obtener todos los cuadros que tiene una tienda mediante su codigo id"
+					},
+					"response": []
+				},
+				{
+					"name": "cuadro por id tienda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"La maja desnuda\",\r\n    \"autor\": \"Francisco de Goya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/collarblanco/tienda/4/cuadro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tienda",
+								"4",
+								"cuadro"
+							]
+						},
+						"description": "Este servicio permite guardar un cuadro en una tienda introduciendo el id de la tienda"
+					},
+					"response": []
+				},
+				{
+					"name": "cuadros por id tienda",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/collarblanco/tienda/2/cuadros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"collarblanco",
+								"tienda",
+								"2",
+								"cuadros"
+							]
+						},
+						"description": "Este servicio elimina todos los cuadros de una tienda determinada introduciendo el código id de la misma"
+					},
+					"response": []
+				}
+			],
+			"description": "Esta carpeta contiene los servicios de las pinturas o cuadros falsificados"
+		}
+	]
+}
